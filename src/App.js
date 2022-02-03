@@ -9,6 +9,11 @@ function App() {
   const [rating, setRating] = useState('');
   const [places, setPlaces] = useState([]);
 
+  const [coords, setCoords] = useState({});
+  const [bounds, setBounds] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
+  const [weatherData, setWeatherData] = useState([]);
+
   return (
     <div className="App">
       <Header />
