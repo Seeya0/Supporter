@@ -4,25 +4,33 @@ import PlaceDetails from './PlaceDetails';
 
 const List = ({ isLoading, type, setType, rating, setRating, places }) => {
   return (
-    <div>
-      <h3 className="text-lg">周りの飲食店やアクティビティ</h3>
+    <div className="text-lg flex flex-col justify-start items-center h-screen w-2/6 bg-gray-100">
+      <h3 className="text-xl mt-4">周りの飲食店やアクティビティ</h3>
 
       {isLoading ? (
         <Loader />
       ) : (
-        <>
-          <div>
-            <label>タイプ</label>
-            <select value={type} onChange={(e) => setType(e.target.value)}>
+        <div className="grid grid-cols-2 mt-4">
+          <div className="flex flex-col mx-4">
+            <label className="font-semibold">タイプ</label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className="border-none outline-none bg-gray-200 py-2 px-4 rounded-full cursor-pointer appearance-none text-center"
+            >
               <option value="restaurants">レストラン</option>
               <option value="hotels">ホテル</option>
               <option value="attractions">アクティビティ</option>
             </select>
           </div>
 
-          <div>
-            <label>レーティング</label>
-            <select value={rating} onChange={(e) => setRating(e.target.value)}>
+          <div className="flex flex-col mx-4">
+            <label className="font-semibold">レーティング</label>
+            <select
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+              className="border-none outline-none bg-gray-200 py-2 px-4 rounded-full cursor-pointer appearance-none text-center"
+            >
               <option value="">全て</option>
               <option value="3">3.0以上</option>
               <option value="3.5">3.5以上</option>
@@ -38,7 +46,7 @@ const List = ({ isLoading, type, setType, rating, setRating, places }) => {
               </div>
             ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

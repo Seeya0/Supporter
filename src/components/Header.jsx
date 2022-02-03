@@ -4,7 +4,7 @@ import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai';
 
 const Header = () => {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-4">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <h3 className="text-xl font-extrabold  tracking-wider">Supporter</h3>
         <div className="text-lg">
