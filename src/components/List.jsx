@@ -1,8 +1,29 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { createRef } from 'react';
+import { useState } from 'react';
 import Loader from './Loader';
 import PlaceDetails from './PlaceDetails';
 
-const List = ({ isLoading, type, setType, rating, setRating, places }) => {
+const List = ({
+  isLoading,
+  type,
+  setType,
+  rating,
+  setRating,
+  places,
+  childClicked,
+}) => {
+  const [elRefs, setElRefs] = useState([]);
+
+  useEffect(() => {
+    setElRefs((refs) =>
+      Array(places.length)
+        .fill()
+        .map((_, i) => refs[i] || createRef())
+    );
+  }, [places]);
+
   return (
     <div className="text-lg flex flex-col justify-start items-center h-screen w-2/6 bg-gray-100">
       <h3 className="text-xl mt-4">周りの飲食店やアクティビティ</h3>
@@ -41,8 +62,12 @@ const List = ({ isLoading, type, setType, rating, setRating, places }) => {
 
           <div>
             {places.map((place, i) => (
-              <div key={i}>
-                <PlaceDetails place={place} />
+              <div key={i} ref={elRefs[i]}>
+                <PlaceDetails
+                  place={place}
+                  selected={Number(childClicked) === i}
+                  refProps={elRefs[i]}
+                />
               </div>
             ))}
           </div>
