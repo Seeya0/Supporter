@@ -1,4 +1,4 @@
-import googleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import React from 'react';
 import ReactStars from 'react-stars';
 
@@ -12,7 +12,7 @@ const Map = ({
 }) => {
   return (
     <div>
-      <googleMapReact
+      <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
         defaultCenter={coords}
         center={coords}
@@ -60,7 +60,7 @@ const Map = ({
               />
             </div>
           ))}
-      </googleMapReact>
+      </GoogleMapReact>
     </div>
   );
 };
