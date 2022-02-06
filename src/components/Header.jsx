@@ -1,16 +1,25 @@
 import { Autocomplete } from '@react-google-maps/api';
 import React from 'react';
 import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai';
+import { useNavigate } from 'react-router';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const pushToAbout = () => {
+    navigate('/about', { state: 1 });
+  };
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-4">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <h3 className="text-xl font-extrabold  tracking-wider">Supporter</h3>
         <div className="text-lg">
-          <div className="mt-2 ml-10 inline-block text-teal-200 hover:text-white mr-4">
+          <button
+            className="mt-2 ml-10 inline-block text-teal-200 hover:text-white mr-4"
+            onClick={pushToAbout}
+          >
             About
-          </div>
+          </button>
         </div>
       </div>
 

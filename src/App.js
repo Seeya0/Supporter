@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router';
 import { getPlaceData } from './api/travelAdvisorAPI';
 import './App.css';
+import About from './components/About';
 import Header from './components/Header';
 import List from './components/List';
 import Map from './components/Map';
@@ -58,15 +60,22 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <List
-        isLoading={isLoading}
-        type={type}
-        setType={setType}
-        rating={rating}
-        setRating={setRating}
-        places={places}
-      />
-      <div className="flex items-center justify-center">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <List
+              isLoading={isLoading}
+              type={type}
+              setType={setType}
+              rating={rating}
+              setRating={setRating}
+              places={places}
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        {/* <div className="flex items-center justify-center">
         <Map
           coords={coords}
           setCoords={setCoords}
@@ -75,7 +84,8 @@ function App() {
           places={places}
           weatherData={weatherData}
         />
-      </div>
+      </div> */}
+      </Routes>
     </div>
   );
 }
